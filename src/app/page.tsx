@@ -1,3 +1,4 @@
+import TwseStockTable from "@/components/stock/TwseStockTable";
 const analysisModules = [
   {
     title: "股票基本資訊",
@@ -67,6 +68,7 @@ export default function Home() {
             </article>
           ))}
         </section>
+        <TwseStockTable />
       </div>
     </main>
   );
