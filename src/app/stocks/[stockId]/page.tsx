@@ -1,3 +1,4 @@
+import StockCandlestickChart from "@/components/stock/StockCandlestickChart";
 import Link from "next/link";
 import { attachMovingAverages } from "@/lib/indicators/movingAverage";
 import { getTwseStockHistory } from "@/services/twse/getTwseStockHistory";
@@ -184,6 +185,10 @@ export default async function StockDetailPage({ params }: StockPageProps) {
             </p>
           </div>
         </section>
+                <StockCandlestickChart
+          data={data}
+          title={`${latest.stockId} ${latest.stockName || "上市個股"} K 線圖`}
+               />
 
         <section className="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-5 shadow-lg">
           <div className="mb-4">
