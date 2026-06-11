@@ -19,3 +19,23 @@ export type TaiwanStockApiResponse = {
   count: number;
   data: TaiwanStockQuote[];
 };
+
+export type TaiwanStockHistoryPrice = {
+  date: string;
+  stockId: string;
+  stockName: string;
+  tradeVolume: number | null;
+  tradeValue: number | null;
+  open: number | null;
+  high: number | null;
+  low: number | null;
+  close: number | null;
+  change: number | null;
+  transaction: number | null;
+};
+
+export type TaiwanStockHistoryWithMa = TaiwanStockHistoryPrice & {
+  ma5: number | null;
+  ma10: number | null;
+  ma20: number | null;
+};

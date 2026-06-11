@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { TaiwanStockApiResponse, TaiwanStockQuote } from "@/types/stock";
 
@@ -178,12 +178,22 @@ export default function TwseStockTable() {
                     key={stock.code}
                     className="border-b border-slate-800/70 hover:bg-slate-800/60"
                   >
-                    <td className="px-3 py-3 font-mono text-slate-200">
+                  <td className="px-3 py-3 font-mono">
+                    <Link
+                      href={`/stocks/${stock.code}`}
+                      className="text-cyan-300 hover:text-cyan-200"
+                    >
                       {stock.code}
-                    </td>
-                    <td className="px-3 py-3 font-medium text-slate-100">
+                    </Link>
+                  </td>
+                  <td className="px-3 py-3 font-medium">
+                    <Link
+                      href={`/stocks/${stock.code}`}
+                      className="text-slate-100 hover:text-cyan-200"
+                    >
                       {stock.name}
-                    </td>
+                    </Link>
+                  </td>
                     <td className="px-3 py-3 text-right font-mono text-slate-100">
                       {formatNumber(stock.close)}
                     </td>
