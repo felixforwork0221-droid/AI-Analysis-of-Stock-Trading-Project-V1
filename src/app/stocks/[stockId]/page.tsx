@@ -1,3 +1,5 @@
+import StockAiAnalysis from "@/components/stock/StockAiAnalysis";
+import StockInstitutionalPanel from "@/components/stock/StockInstitutionalPanel";
 import StockCandlestickChart from "@/components/stock/StockCandlestickChart";
 import Link from "next/link";
 import { attachMovingAverages } from "@/lib/indicators/movingAverage";
@@ -189,6 +191,21 @@ export default async function StockDetailPage({ params }: StockPageProps) {
           data={data}
           title={`${latest.stockId} ${latest.stockName || "上市個股"} K 線圖`}
                />
+
+        <StockInstitutionalPanel
+          stockId={latest.stockId}
+          stockName={latest.stockName || "上市個股"}
+          history={data}
+        />
+
+        <StockAiAnalysis
+          stockId={latest.stockId}
+          stockName={latest.stockName || "上市個股"}
+          latest={latest}
+          recent20High={recent20High}
+          recent20Low={recent20Low}
+          history={data}
+        />
 
         <section className="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-5 shadow-lg">
           <div className="mb-4">

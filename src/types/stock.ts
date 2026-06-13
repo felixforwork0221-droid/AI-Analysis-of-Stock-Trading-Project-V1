@@ -39,3 +39,23 @@ export type TaiwanStockHistoryWithMa = TaiwanStockHistoryPrice & {
   ma10: number | null;
   ma20: number | null;
 };
+
+export type TaiwanStockInstitutionalTrade = {
+  date: string;
+  stockId: string;
+  stockName: string;
+  foreignNetBuySell: number | null;
+  investmentTrustNetBuySell: number | null;
+  dealerNetBuySell: number | null;
+  totalNetBuySell: number | null;
+};
+
+export type TaiwanStockInstitutionalApiResponse = {
+  source: string;
+  market: string;
+  stockId: string;
+  stockName: string;
+  fetchedAt: string;
+  count: number;
+  data: TaiwanStockInstitutionalTrade[];
+};
