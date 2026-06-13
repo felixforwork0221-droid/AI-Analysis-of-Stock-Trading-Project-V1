@@ -127,14 +127,16 @@ async function fetchDailyInstitutionalTrade(
     return null;
   }
 
-  const row = result.data.find((item) => item[codeIndex] === stockId);
+  const row = result.data.find(
+    (item) => String(item[codeIndex]).trim() === stockId
+  );
 
   if (!row) return null;
 
   return {
     date: formatIsoDate(date),
-    stockId: row[codeIndex],
-    stockName: row[nameIndex],
+    stockId: String(row[codeIndex]).trim(),
+    stockName: String(row[nameIndex]).trim(),
     foreignNetBuySell: toNumber(row[foreignNetIndex]),
     investmentTrustNetBuySell: toNumber(row[trustNetIndex]),
     dealerNetBuySell: toNumber(row[dealerNetIndex]),
